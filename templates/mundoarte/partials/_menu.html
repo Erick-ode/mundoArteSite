@@ -1,0 +1,64 @@
+{% load static %}
+<nav class="menu">
+    <ul class="menu-items">
+      <li class="menu-item">
+        <a routerLink="/pagina-inicial" class="active_home">
+          <i class="fa fa-home"></i>
+          Página Inicial
+          <i class="fa fa-caret-down"></i>
+        </a>
+        <div class="cabecalho__busca">
+          <div class="busca__fundo">
+              <form action="{% url 'buscar' %}">
+                  <input class="busca__input" type="text" name='buscar' placeholder="O que você procura?">
+                  <button  type="submit">
+                      <img class="busca__icone" src="{% static '/assets/ícones/1x/search.png' %}" alt="ícone de search">
+                  </button>
+              </form>
+          </div>
+          <div class="cabecalho__ordena">
+            <div>
+              <form action="{% url 'ordenarPorNome' %}">
+                <button type="submit">
+                  Ordenar por nome
+                </button>
+              </form>
+            </div>
+            <div>
+              <form action="{% url 'ordenarPorPrecoCrescente' %}">
+                <button type="submit">
+                  Ordenar por preço crescente
+                </button>
+              </form>
+            </div>
+            <div>
+              <form action="{% url 'ordenarPorPrecoDescendente' %}">
+                <button type="submit">
+                  Ordenar por preço descendente
+                </button>
+              </form>
+            </div>
+          </div>
+      </div>
+  
+        <ul class="dropdown-content">
+          <li><a href="{% url 'redesSociais' %}"><i class="fa fa-instagram"></i> Redes Sociais</a></li>
+          <li><a href="{% url 'endereco' %}"><i class="fa fa-map-marker"></i> Endereço</a></li>
+          <li><a href="{% url 'sobre' %}"><i class="fa fa-info-circle"></i> Sobre</a></li>
+        </ul>
+      </li>
+    </ul>
+  
+    <ul class="Empresa">
+      <a href="#">
+        <img src="../assets/img/Logo.png" width="100" height="80" class="d-inline-block align-top" alt="Logo Mundo Artes Personalizados">
+      </a>
+    </ul>
+    <div class="whatsapp">
+      <a
+        href="https://wa.me/5545999241772?text=Seja+bem-vindo+%C3%A0+Mundo+Artes+e+Personalizados%21+Aqui%2C+transformamos+suas+ideias+em+realidade+com+nossos+produtos+personalizados.+Estamos+ansiosos+para+criar+algo+especial+para+voc%C3%AA.+Obrigado+por+escolher+a+nossa+empresa%21">
+        <span class="whatsapp-icon"><i class="fa fa-whatsapp"></i></span>
+        <span class="whatsapp-number">Whatsapp</span>
+      </a>
+    </div>
+  </nav>

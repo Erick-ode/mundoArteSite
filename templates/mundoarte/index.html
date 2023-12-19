@@ -1,0 +1,30 @@
+{% extends 'mundoarte/base.html' %}
+{% load static %}
+{% block content %}
+<div class="pagina-inicial">
+  <section class="catalogo">
+    <div class="produtos">
+      <ul class="produtos__lista">
+        {% if produtos %}
+        {% for produto in produtos %}
+        <li class="produto">
+          <h2>{{produto.nome}}</h2>
+          <h3>{{produto.subcategoria}}</h3>
+          <h2>{{produto.preco}}</h2>
+          {% if produto.imagem == "" or produto.imagem == null %}
+          <img class="produto__imagem" alt="{{produto.nome}}">
+          {% else %}
+          <img class="produto__imagem" src="{{ produto.imagem.url }}" alt="{{produto.nome}}">
+          {% endif %}
+        </li>
+        {% endfor %}
+        {% else %}
+        <div>
+          <p>Produtos não encontrados</p>
+      </div>
+        {% endif %}
+      </ul>
+    </div>
+  </section>
+</div>
+{% endblock %}
