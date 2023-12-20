@@ -2,14 +2,14 @@ from django.contrib import admin
 from mundoarte.models import Categoria, Subcategoria, Produto
 
 
-class ListaCategorias(admin.ModelAdmin):
+class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome',)
     list_display_links = ('nome',)
     search_fields = ('nome',)
     list_per_page = 10
 
 
-class ListaSubcategorias(admin.ModelAdmin):
+class SubcategoriaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome', 'categoria',)
     list_display_links = ('nome',)
     search_fields = ('nome', 'categoria__nome')
@@ -18,18 +18,18 @@ class ListaSubcategorias(admin.ModelAdmin):
     list_per_page = 10
 
 
-class ListaProdutos(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'categoria', 'preco', 'subcategoria', 'publicada')
+class ProdutoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nome', 'categoria', 'preco', 'subcategoria', 'publicada', 'data_publicacao')
     list_display_links = ('nome',)
-    search_fields = ('nome', 'categoria', 'subcategoria',)
-    list_filter = ('subcategoria', 'categoria',)
-    list_editable = ('subcategoria', 'publicada', 'categoria')
+    search_fields = ('nome', 'categoria__nome', 'subcategoria__nome')
+    list_filter = ('subcategoria', 'subcategoria__categoria')
+    list_editable = ('subcategoria', 'publicada',)
     list_per_page = 10
 
 
-admin.site.register(Categoria, ListaCategorias)
-admin.site.register(Subcategoria, ListaSubcategorias)
-admin.site.register(Produto, ListaProdutos)
+admin.site.register(Categoria, CategoriaAdmin)
+admin.site.register(Subcategoria, SubcategoriaAdmin)
+admin.site.register(Produto, ProdutoAdmin)
 
 
 
