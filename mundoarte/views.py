@@ -19,6 +19,8 @@ def buscar(request):
         valor_a_buscar = request.GET['buscar']
         if valor_a_buscar:
             produtos = produtos.filter(nome__icontains=valor_a_buscar)
+            if not produtos:
+                produtos = produtos.filter(subcategoria__nome__icontains=valor_a_buscar)
 
     return render(request, 'mundoarte/index.html', {'produtos': produtos, 'categorias': categorias, 'subcategorias': subcategorias})
 
