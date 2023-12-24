@@ -1,0 +1,520 @@
+/* Variáveis */
+:root {
+  --color-primary: #fff8f8;      
+  --color-secondary: #434e54;      
+  --color-tertiary: #0d3335;       
+  --color-quinary: #E63946;        
+  --color-senary: #D2B48C;         
+  --color-septenary: #F1FAEE;      
+  --color-octonary: #E63946;       
+  --color-light: #f3f3f3;          
+  --color-dark: #1D3557;           
+  --color-text-light: #F1FAEE;     
+  --color-text-dark: #1D3557;      
+  --text-color: #f2f2f2; 
+  --facebook-color: #1877F2;
+  --instagram-color: #E1306C;
+  --whatsapp-color: #25D366;
+  --footer-bg-color: #000000; 
+  --font-family-default: 'Arial', 'Helvetica', 'sans-serif';
+  --font-size-default: 1rem;
+  --font-size-medium: 1.125rem;
+  --font-size-large: 1.5rem;
+  --spacing-default: 1rem;
+  --spacing-small: 0.5rem;
+  --spacing-large: 2rem;
+  --breakpoint-small: 37.5em;
+}
+
+/* Estilos Básicos */
+html {
+  position: relative;
+  min-height: 100%;
+  background-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Estilos do Navbar */
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-small) var(--spacing-default);
+  background-image: linear-gradient(rgb(0 0 0), rgb(130 4 83));
+  color: var(--color-dark);
+}
+
+.menu-items {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  align-items: center;
+  flex-grow: 1; /* Permite que os itens do menu ocupem o espaço disponível */
+}
+
+.menu-item {
+  margin-right: 20px; /* Espaçamento entre os itens do menu */
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-size-default); /* Tamanho da fonte conforme variável */
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para a Empresa */
+.Empresa {
+  display: flex;
+  align-items: center;
+}
+
+.Empresa a {
+  text-decoration: none;
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+}
+
+.Empresa img {
+  margin-right: 10px; /* Espaço entre o logotipo e o texto */
+  width: 100px;
+  height: 80px;
+}
+
+.empresa-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos dos ícones */
+.fa, .whatsapp-icon {
+  margin-right: 10px; /* Espaço entre o ícone e o texto */
+}
+
+/* Estilos Responsivos */
+@media screen and (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-items, .Empresa, .whatsapp {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+}
+
+.menu-item a {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  color: var(--color-text-light);
+  padding: var(--spacing-small) var(--spacing-default);
+}
+
+.menu-item .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--color-light);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+}
+
+.menu-item .dropdown-content li {
+  color: var(--color-dark);
+  padding: 12px 16px;
+  display: block;
+  text-align: left;
+}
+
+.menu-item:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: var(--color-dark); 
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content li a {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-content li a .fa {
+  margin-right: 10px; 
+}
+
+.dropdown-content a:hover {
+  background-color: var(--color-tertiary); 
+}
+
+.Empresa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+.Empresa a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 20px;
+  text-align: center; 
+}
+
+.Empresa img {
+  border-radius: 10%;
+  border: 3px solid #8f2f6b8c;
+  height: 80px;
+  width: 120px;
+  display: block; 
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease;
+}
+
+.Empresa img:hover {
+  transform: scale(1.05); 
+}
+
+.Empresa a:hover {
+  color: #101010; 
+  transform: scale(1.05); 
+}
+
+/* Estilos do WhatsApp */
+.whatsapp {
+  display: flex;
+  align-items: center;
+  background-color: var(--whatsapp-color); 
+  padding: var(--spacing-small);
+  border-radius: 5px;
+  transition: transform .2s, background-color .2s;
+}
+
+.whatsapp a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.whatsapp:hover {
+  transform: scale(1.1);
+  background-color: #128C7E; 
+}
+
+.whatsapp-icon {
+  margin-right: 10px;
+}
+
+.whatsapp-number {
+  font-size: 16px;
+}
+
+/* Estilos para o Filtro Lateral */
+.filtro {
+  width: 20%; /* Ajustável conforme a necessidade */
+  position: static;
+  left: 0;
+  top: 150px; /* Altura do botão + posição do botão */
+  bottom: 100px; /* Altura do Footer */
+  height: calc(100% - 150px - 100px); /* Ajuste a altura */
+  overflow-y: auto;
+  background-color: var(--color-light);
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  padding: var(--spacing-default);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+/* Estilos para os elementos dentro do filtro */
+.filtro div:first-child {
+  margin-top: var(--spacing-large); /* Espaçamento maior para o primeiro div */
+}
+
+.filtro div {
+  margin-bottom: var(--spacing-default);
+}
+
+.menu-item a:hover {
+  text-decoration: underline;
+}
+
+
+button, a {
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+
+}
+
+button:hover {
+  background-color:#ca085fc7; /* Cor ao passar o mouse */
+  color: var(--color-text-light);
+  transform: scale(1.02); /* Ligeiro aumento no tamanho */
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Estilização dos botões e inputs dentro do filtro */
+.filtro button, .filtro input, .filtro select {
+  width: 100%;
+  padding: var(--spacing-small);
+  margin-bottom: var(--spacing-small);
+  border: 1px solid var(--color-secondary);
+  border-radius: 4px;
+}
+input:focus, select:focus, button:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade do Filtro */
+/*@media screen and (max-width: var(--breakpoint-small)) {
+  .filtro {
+    width: 100%;
+    box-shadow: none;
+  }
+}
+  /* Estilo quando o filtro está visível */
+
+  .filtro-visivel {
+    transform: translateX(0);
+}
+
+  /* Botão para expandir/ocultar o filtro em todas as telas */
+.filtro-toggle {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 2px;
+  background-color: var(--color-quinary);
+  color: var(--color-text-light);
+  padding: var(--spacing-small);
+  border-radius: 3px;
+  cursor: pointer;
+  z-index: 100;
+  width: 150px; /* Largura ajustada */
+}
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.filtro-visivel {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Responsividade do Filtro */
+@media screen and (max-width: var(--breakpoint-small)) {
+  .filtro {
+    width: 100%;
+    box-shadow: none;
+  }
+  
+
+/* Estilos de Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid var(--color-dark); 
+  margin: 0 auto;
+  width: 80%;
+}
+
+.ordenar {
+  display: contents;
+}
+
+form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+form div button {
+  padding: 10px;
+  border: 0;
+  background-color: var(--color-tertiary);
+  color: var(--color-dark); 
+  cursor: pointer;
+  transition: background-color .2s;
+}
+
+form div button:hover {
+  background-color: var(--color-secondary); 
+}
+
+form div button[type="reset"] {
+  background-color: var(--color-quinary); 
+}
+
+form div button[type="reset"]:hover {
+  background-color: var(--color-octonary); 
+}
+
+form div button:disabled {
+  background-color: var(--color-septenary); 
+  color: var(--color-dark); 
+  cursor: not-allowed;
+}
+
+/* Estilos Adicionais */
+.nav-item i {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.produto__imagem {
+  height: auto;
+  width: 350px;
+}
+
+/* Cores para Ícones das Redes Sociais */
+.fab.fa-facebook {
+  color: var(--facebook-color); 
+}
+
+.fab.fa-instagram {
+  color: var(--instagram-color); 
+}
+
+.fab.fa-whatsapp {
+  color: var(--whatsapp-color); 
+}
+
+.nav-link i {
+  margin-right: 8px;
+}
+
+.footer-logo {
+  width: 150px;
+  height: 130px;
+  padding: 15px;
+  border-radius: 50px;
+  transition: transform 0.3s ease;
+  vertical-align: middle; 
+}
+
+.footer-brand-text {
+  color: #a82b61;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+  display: inline-block; 
+  vertical-align: middle; 
+}
+
+.footer-brand-link:hover .footer-logo,
+.footer-brand-link:hover .footer-brand-text {
+  transform: scale(1.1);
+}
+
+.address-section {
+  border-left: 4px solid #f7b05b; 
+  padding-left: 15px;
+}
+
+.address-section h4 {
+  color: #f7b05b; 
+  font-weight: bold;
+}
+
+h3 {
+  color: #FFF; 
+  font-weight: 600; 
+  font-size: 30px;
+}
+
+/* Estilos Responsivos */
+@media screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .company {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .whatsapp {
+    margin-top: 10px;
+  }
+
+  .menu-item {
+    margin-right: 0;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .menu-item a {
+    padding: 5px;
+  }
+
+  .dropdown-content {
+    position: static;
+    display: none;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #171717;
+    min-width: 120px;
+  }
+
+  .menu-item:hover .dropdown-content {
+    display: block;
+  }
+}
+
+/*@media screen and (max-width: var(--breakpoint-small)) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 414px) {  
+  .menu, .sidebar, .main-content {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* Exemplo de ajustes para telas menores */
+  .menu {
+    flex-direction: row; /* Alinhamento horizontal */
+  }
+
+  .menu-items {
+    display: inline-block; /* Itens do menu alinhados lado a lado */
+  }
+
+  .dropdown-content {
+    position: absolute; /* Ajuste conforme necessário */
+    display: none; /* Ocultar até hover */
+  }
+
+  .menu-item:hover {
+    display: block; /* Mostrar ao passar o mouse */
+  }
+}

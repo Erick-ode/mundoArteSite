@@ -1,9 +1,14 @@
 {% extends 'mundoarte/base.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 <div class="about-us">
     <h2>Sobre nós</h2>
-    <img src="../assets/img/mundo_arte.jpg" alt="Mundo Arte" class="about-us-img">
+    <img src={% static 'assets/img/mundo_arte.jpg' %} alt="Mundo Arte" class="about-us-img">
     <p class="about-us-content">
       Com sede na encantadora cidade de Toledo, Paraná, a Mundo Artes Personalizados é uma empresa com um compromisso apaixonado por dar vida à criatividade através de produtos personalizados. Como membro associado da renomada franquia Caricanecas, nosso objetivo é enriquecer a vida de nossos clientes com peças únicas que refletem sua personalidade e gosto únicos.
       <br/><br/>

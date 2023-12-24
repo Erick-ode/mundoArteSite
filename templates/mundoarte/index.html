@@ -1,6 +1,98 @@
 {% extends 'mundoarte/base.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var botaoFiltro = document.getElementById('filtro-toggle');
+      var filtro = document.querySelector('.filtro');
+      botaoFiltro.addEventListener('click', function() {
+          filtro.classList.toggle('filtro-visivel');
+          if (filtro.classList.contains('filtro-visivel')) {
+              botaoFiltro.innerHTML = '<i class="fas fa-filter"></i> Esconder filtros';
+          } else {
+              botaoFiltro.innerHTML = '<i class="fas fa-filter"></i> Exibir filtros';
+          }
+      });
+  });
+</script>
+
+
+<button id="filtro-toggle" class="filtro-toggle">
+  <i class="fas fa-filter"></i> Exibir filtros
+</button>
+
+
+<div class="filtro">
+  <div class="buscar">
+    <form action="{% url 'buscar' %}">
+      <input class="busca__input" type="text" name='buscar' placeholder="O que você procura?">
+      <button type="submit">
+        <img class="busca__icone" width="20" height="20" src="https://img.icons8.com/color/48/search--v1.png" alt="search--v1"/>
+      </button>
+    </form>
+  </div>
+  <div class="cabecalho__ordena">
+    <div>
+      <form action="{% url 'ordenarPorNome' %}">
+        <button type="submit">
+          <i class="fas fa-sort-alpha-up"></i> Ordenar por nome
+        </button>
+      </form>
+    </div>
+    <div>
+      <form action="{% url 'ordenarPorPrecoCrescente' %}">
+        <button type="submit">
+          <i class="fas fa-sort-amount-up"></i> Ordenar por preço crescente
+        </button>
+      </form>
+    </div>
+    <div>
+      <form action="{% url 'ordenarPorPrecoDescendente' %}">
+        <button type="submit">
+          <i class="fas fa-sort-amount-down"></i> Ordenar por preço descendente
+        </button>
+      </form>
+    </div>
+     <div>
+      <form action="{% url 'filtroCategoria' %}">
+        <select name="filtroCategoria">
+          <option value="0">Todas as categorias</option>
+          {% if categorias %}
+          {% for categoria in categorias %}
+          <option value="{{categoria.id}}">{{categoria.nome}}</option>
+          {% endfor %}
+        </select>
+        <button type="submit">
+          <i class="fa fa-filter"></i> Filtrar por Categoria
+        </button>
+        {% else %}
+        {% endif %}
+      </form>
+    </div>
+    <div>
+      <form action="{% url 'filtroSubcategoria' %}">
+        {% if subcategorias %}
+        <select name="filtroSubcategoria">
+          <option value="0">Todas as subcategorias</option>
+          {% for categoria in subcategorias %}
+          <option value="{{categoria.id}}">{{categoria.nome}}</option>
+          {% endfor %}
+        </select>
+        {% endif %}
+        <button type="submit">
+          <i class="fa fa-filter"></i> Filtrar por Subcategoria
+        </button>
+      </form>
+    </div> 
+  </div>
+</div>
 <div class="pagina-inicial">
   <section class="catalogo">
     <div class="produtos">
@@ -25,6 +117,7 @@
         {% endif %}
       </ul>
     </div>
+  
   </section>
 </div>
 {% endblock %}

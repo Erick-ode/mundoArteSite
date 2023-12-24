@@ -1,96 +1,38 @@
 {% load static %}
-<nav class="menu">
-  <ul class="menu-items">
-    <li class="menu-item">
-      <a href="{% url 'index' %}" class="active_home">
-        <i class="fa fa-home"></i>
-        Página Inicial
-        <i class="fa fa-caret-down"></i>
-      </a>
-      <div class="cabecalho__busca">
-        <div class="busca__fundo">
-          <form action="{% url 'buscar' %}">
-            <input class="busca__input" type="text" name='buscar' placeholder="O que você procura?">
-            <button type="submit">
-              <img class="busca__icone" src="{% static '/assets/ícones/1x/search.png' %}" alt="ícone de search">
-            </button>
-          </form>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<body>
+  <nav class="menu">
+      <ul class="menu-items">
+          <li class="menu-item">
+              <a href="{% url 'index' %}" class="active_home">
+                  <i class="fa fa-home"></i>Página Inicial</a>
+                <a href="{% url 'redesSociais' %}"><i class="fab fa-instagram">
+                  </i> Redes Sociais</a>
+          </li>
+          <div class="Empresa">
+            <a href="#">
+              <span>Mundo Artes</span>
+              <img src="{% static 'assets/logo/logo.png' %}" alt="Logo Mundo Artes Personalizados">
+                <div class="empresa-text">
+                    <span>Personalizados</span>
+                </div>
+            </a>
         </div>
-        <div class="cabecalho__ordena">
-          <div>
-            <form action="{% url 'ordenarPorNome' %}">
-              <button type="submit">
-                Ordenar por nome
-              </button>
-            </form>
-          </div>
-          <div>
-            <form action="{% url 'ordenarPorPrecoCrescente' %}">
-              <button type="submit">
-                Ordenar por preço crescente
-              </button>
-            </form>
-          </div>
-          <div>
-            <form action="{% url 'ordenarPorPrecoDescendente' %}">
-              <button type="submit">
-                Ordenar por preço descendente
-              </button>
-            </form>
-          </div>
-          <!-- <div>
-            <form action="{% url 'filtroCategoria' %}">
-              <select name="filtroCategoria">
-                <option value="0">Todas as categorias</option>
-                {% if categorias %}
-                {% for categoria in categorias %}
-                <option value="{{categoria.id}}">{{categoria.nome}}</option>
-                {% endfor %}
-              </select>
-              <button type="submit">
-                filtroCategoria
-              </button>
-              {% else %}
-              {% endif %}
-            </form>
-          </div>
-          <div>
-            <form action="{% url 'filtroSubcategoria' %}">
-              {% if subcategorias %}
-              <select name="filtroSubcategoria">
-                <option value="0">Todas as subcategorias</option>
-                {% for categoria in subcategorias %}
-                <option value="{{categoria.id}}">{{categoria.nome}}</option>
-                {% endfor %}
-              </select>
-              {% endif %}
-              <button type="submit">
-                filtroSubcategoria
-              </button>
-            </form>
-          </div>
-        </div> -->
-      </div>
-
-      <ul class="dropdown-content">
-        <li><a href="{% url 'redesSociais' %}"><i class="fa fa-instagram"></i> Redes Sociais</a></li>
-        <li><a href="{% url 'endereco' %}"><i class="fa fa-map-marker"></i> Endereço</a></li>
-        <li><a href="{% url 'sobre' %}"><i class="fa fa-info-circle"></i> Sobre</a></li>
+          <li class="menu-item">
+              <a href="{% url 'endereco' %}"><i class="fa fa-map-marker"></i> Endereço</a>
+              <a href="{% url 'sobre' %}"><i class="fa fa-info-circle"></i> Sobre</a>
+          </li>
       </ul>
-    </li>
-  </ul>
-
-  <ul class="Empresa">
-    <a href="#">
-      <img src="../assets/img/Logo.png" width="100" height="80" class="d-inline-block align-top"
-        alt="Logo Mundo Artes Personalizados">
-    </a>
-  </ul>
-  <div class="whatsapp">
-    <a
-      href="https://wa.me/5545999241772?text=Seja+bem-vindo+%C3%A0+Mundo+Artes+e+Personalizados%21+Aqui%2C+transformamos+suas+ideias+em+realidade+com+nossos+produtos+personalizados.+Estamos+ansiosos+para+criar+algo+especial+para+voc%C3%AA.+Obrigado+por+escolher+a+nossa+empresa%21">
-      <span class="whatsapp-icon"><i class="fa fa-whatsapp"></i></span>
-      <span class="whatsapp-number">Whatsapp</span>
-    </a>
-  </div>
-</nav>
+      <div class="whatsapp">
+          <a href="https://wa.me/5545999241772?text=Seja+bem-vindo+%C3%A0+Mundo+Artes+e+Personalizados%21+Aqui%2C+transformamos+suas+ideias+em+realidade+com+nossos+produtos+personalizados.+Estamos+ansiosos+para+criar+algo+especial+para+voc%C3%AA.+Obrigado+por+escolher+a+nossa+empresa%21">
+              <span class="whatsapp-icon"><i class="fab fa-whatsapp"></i></span>
+              <span class="whatsapp-number">Whatsapp</span>
+          </a>
+      </div>
+  </nav>
+</body>
