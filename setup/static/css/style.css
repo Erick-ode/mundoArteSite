@@ -13,6 +13,8 @@
   --color-text-dark: #1D3557;      
   --text-color: #f2f2f2; 
   --facebook-color: #1877F2;
+  --font-family-dancing-script: 'Dancing Script', cursive;
+  --font-family-roboto-condensed: 'Roboto Condensed', sans-serif;
   --instagram-color: #E1306C;
   --whatsapp-color: #25D366;
   --footer-bg-color: #000000; 
@@ -22,7 +24,7 @@
   --font-size-large: 1.5rem;
   --spacing-default: 1rem;
   --spacing-small: 0.5rem;
-  --spacing-large: 2rem;
+  --spacing-large: 8rem;
   --breakpoint-small: 37.5em;
 }
 
@@ -35,8 +37,6 @@ html {
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 .container {
@@ -68,7 +68,7 @@ html {
   font-size: var(--font-size-default); /* Tamanho da fonte conforme variável */
 }
 
-.menu-item a {
+.menu-item a{
   text-decoration: none;
   color: var(--color-text-light);
   display: flex;
@@ -79,6 +79,7 @@ html {
 .Empresa {
   display: flex;
   align-items: center;
+  margin-right: var(--spacing-large);
 }
 
 .Empresa a {
@@ -86,12 +87,21 @@ html {
   color: var(--color-text-light);
   display: flex;
   align-items: center;
+  margin-right: 10px;
+  margin-left: 80px;
+  font-size: 20px;
+  text-align: center; 
 }
 
 .Empresa img {
-  margin-right: 10px; /* Espaço entre o logotipo e o texto */
-  width: 100px;
+  margin-right: var(--spacing-large); /* Espaço entre o logotipo e o texto */
+  border-radius: 10%;
+  border: 3px solid #8f2f6b8c;
   height: 80px;
+  width: 120px;
+  display: block; 
+  margin: auto;
+  transition: transform 0.3s ease;
 }
 
 .empresa-text {
@@ -172,23 +182,6 @@ html {
   height: 80px;
 }
 
-.Empresa a {
-  text-decoration: none;
-  color: #000000;
-  font-size: 20px;
-  text-align: center; 
-}
-
-.Empresa img {
-  border-radius: 10%;
-  border: 3px solid #8f2f6b8c;
-  height: 80px;
-  width: 120px;
-  display: block; 
-  margin-left: auto;
-  margin-right: auto;
-  transition: transform 0.3s ease;
-}
 
 .Empresa img:hover {
   transform: scale(1.05); 
@@ -516,5 +509,44 @@ h3 {
 
   .menu-item:hover {
     display: block; /* Mostrar ao passar o mouse */
+  }
+}
+
+/* Estilos Responsivos para Telas Menores */
+@media screen and (max-width: var(--breakpoint-small)) {
+  /* Ajusta o layout do menu para coluna em telas menores */
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Organiza os itens do menu verticalmente e centraliza */
+  .menu-items {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Ajusta o espaçamento e alinhamento para os itens do menu */
+  .menu-item {
+    margin-right: 0;
+    margin-bottom: var(--spacing-small);
+  }
+
+  /* Ajusta o tamanho e alinhamento do logo e do texto da empresa */
+  .Empresa {
+    flex-direction: column;
+    margin-right: 0;
+    margin-bottom: var(--spacing-small);
+  }
+
+  .Empresa img {
+    margin-right: 0;
+    margin-bottom: var(--spacing-small);
+    width: 80px;  /* Ajuste o tamanho do logo conforme necessário */
+    height: 60px;
+  }
+
+  .Empresa a {
+    font-size: var(--font-size-medium);
   }
 }

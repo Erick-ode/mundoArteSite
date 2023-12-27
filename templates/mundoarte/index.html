@@ -7,6 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -30,12 +32,10 @@
 
 
 <div class="filtro">
-  <div class="buscar">
-    <form action="{% url 'buscar' %}">
-      <input class="busca__input" type="text" name='buscar' placeholder="O que você procura?">
-      <button type="submit">
-        <img class="busca__icone" width="20" height="20" src="https://img.icons8.com/color/48/search--v1.png" alt="search--v1"/>
-      </button>
+  <div class="col-md-4">
+    <form action="{% url 'buscar' %}" class="form-inline">
+      <input class="form-control mr-sm-2" type="text" name='buscar' placeholder="O que você procura?">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
     </form>
   </div>
   <div class="cabecalho__ordena">

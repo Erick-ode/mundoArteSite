@@ -1,38 +1,66 @@
 {% load static %}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Mundo Artes</title>
+</head>
 <body>
-  <nav class="menu">
-      <ul class="menu-items">
-          <li class="menu-item">
-              <a href="{% url 'index' %}" class="active_home">
-                  <i class="fa fa-home"></i>Página Inicial</a>
-                <a href="{% url 'redesSociais' %}"><i class="fab fa-instagram">
-                  </i> Redes Sociais</a>
+  <!-- Navbar com Bootstrap -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <span style="font-family: 'Dancing Script', cursive; font-size: 2em; font-weight: 700; color: #FFFFFF;">Mundo Artes</span>
+        <img src="{% static 'assets/logo/logo.png' %}" alt="Logo Mundo Artes Personalizados" style="height: 80px;">
+        <span style="font-family: 'Roboto Condensed', sans-serif; font-size: 1.5em; font-weight: 700; color: #FFFFFF; text-shadow: 1px 1px 2px #0d3335;">Personalizados</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}"><i class="fa fa-home"></i> Página Inicial</a>
           </li>
-          <div class="Empresa">
-            <a href="#">
-              <span>Mundo Artes</span>
-              <img src="{% static 'assets/logo/logo.png' %}" alt="Logo Mundo Artes Personalizados">
-                <div class="empresa-text">
-                    <span>Personalizados</span>
-                </div>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'redesSociais' %}"><i class="fab fa-instagram"></i> Redes Sociais</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-item nav-link" href="{% url 'endereco' %}"><i class="fa fa-map-marker"></i> Endereço</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link" href="{% url 'sobre' %}"><i class="fa fa-info-circle"></i> Sobre</a>
+          </li>
+          <li class="nav-item d-none d-lg-block">
+            <a class="nav-item nav-link btn btn-success" href="https://wa.me/5545999241772">
+              <i class="fab fa-whatsapp"></i> Whatsapp
             </a>
-        </div>
-          <li class="menu-item">
-              <a href="{% url 'endereco' %}"><i class="fa fa-map-marker"></i> Endereço</a>
-              <a href="{% url 'sobre' %}"><i class="fa fa-info-circle"></i> Sobre</a>
           </li>
-      </ul>
-      <div class="whatsapp">
-          <a href="https://wa.me/5545999241772?text=Seja+bem-vindo+%C3%A0+Mundo+Artes+e+Personalizados%21+Aqui%2C+transformamos+suas+ideias+em+realidade+com+nossos+produtos+personalizados.+Estamos+ansiosos+para+criar+algo+especial+para+voc%C3%AA.+Obrigado+por+escolher+a+nossa+empresa%21">
-              <span class="whatsapp-icon"><i class="fab fa-whatsapp"></i></span>
-              <span class="whatsapp-number">Whatsapp</span>
-          </a>
+        </ul>
       </div>
+    </div>
   </nav>
+
+  <!-- WhatsApp Link para telas menores -->
+  <div class="d-lg-none text-center my-3">
+    <a href="https://wa.me/5545999241772" class="btn btn-success">
+      <i class="fab fa-whatsapp"></i> Whatsapp
+    </a>
+  </div>
+
+  <!-- Scripts do Bootstrap (jQuery, Popper.js e Bootstrap JS) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>
